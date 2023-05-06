@@ -31,7 +31,11 @@ const Hero = () => {
       </h1>
 
       <h2 className="desc">
-        Simplify your reading with Summize, an Open-Source article Summarizer that transforms lengthy articles into clear and concise summaries.
+          
+      
+        Don't have time to read every article in full? Summize has got you covered. Our Open-Source summarizer transforms lengthy pieces into clear, concise summaries that get straight to the point. With Summize, you can stay informed without sacrificing your precious time. Give it a try today.
+
+        
       </h2>
 
     </header>
