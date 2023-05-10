@@ -1,17 +1,11 @@
 import { createApi , fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 
 
-
-const axios = require('axios');
-
+const rapidApiKey = import.meta.env.VITE_RAPID_API_ARTICLE_KEY;
 
 
-try {
-	const response = await axios.request(options);
-	console.log(response.data);
-} catch (error) {
-	console.error(error);
-}
+
+
 export const articleApi = createApi({
     reducerPath : 'articleApi',
     baseQuery : fetchBaseQuery({
@@ -20,12 +14,18 @@ export const articleApi = createApi({
         prepareHeaders: (headers) => {
             headers.set('X-RapidAPI-Key' , ' KEY ');
             headers.set('X-RapidAPI-Host',  'article-extractor-and-summarizer.p.rapidapi.com');
+
+
+            return headers;
         }
     }),
 
     endpoints: (builder) => ({
         getSummary: builder.query({
-            query: (params) => `test`
+            query: (params) => `/summarize?url=${encodeURIComponent(params.articleUrl)}& length=
+            3`
         })
     })
 });
+
+export const { useLazyGetSummaryQuery } = articleApi;
